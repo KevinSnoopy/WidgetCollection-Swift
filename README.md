@@ -8,6 +8,7 @@
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+(https://github.com/KevinSnoopy/WidgetCollection-Swift/tree/master/Example/widget.png)
 
 ## Requirements
 
@@ -17,7 +18,7 @@ WidgetCollection-Swift is available through [CocoaPods](https://cocoapods.org). 
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'WidgetCollection-Swift'
+pod 'WidgetCollection-Swift', :git => 'https://github.com/KevinSnoopy/WidgetCollection-Swift.git'
 ```
 
 ## Author
