@@ -1,0 +1,22 @@
+{
+  "name": "WidgetCollection-Swift",
+  "version": "0.1.0",
+  "summary": "A short description of WidgetCollection-Swift.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/850001735@qq.com/WidgetCollection-Swift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "850001735@qq.com": "850001735@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/850001735@qq.com/WidgetCollection-Swift.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "WidgetCollection-Swift/Classes/**/*"
+}

@@ -1,0 +1,6 @@
+framework module WidgetCollection_Swift {
+  umbrella header "WidgetCollection-Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

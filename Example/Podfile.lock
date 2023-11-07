@@ -1,0 +1,16 @@
+PODS:
+  - WidgetCollection-Swift (0.1.0)
+
+DEPENDENCIES:
+  - WidgetCollection-Swift (from `../`)
+
+EXTERNAL SOURCES:
+  WidgetCollection-Swift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  WidgetCollection-Swift: ee44e5456849c8a415ecfb7abff1d29f29474bc3
+
+PODFILE CHECKSUM: 73112154347081cdd74760ab45516539a2a83878
+
+COCOAPODS: 1.14.2
