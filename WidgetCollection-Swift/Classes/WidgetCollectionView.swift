@@ -8,17 +8,17 @@
 import Foundation
 import UIKit
 
-open protocol WidgetCollectionViewDataSource: NSObjectProtocol {
+public protocol WidgetCollectionViewDataSource: NSObjectProtocol {
     
-    open func numberOfItems() -> Int
-    open func sizeOfItem(at index: Int) -> CGSize
-    open func collectionView(_ collectionView: WidgetCollectionView, cellForItemAt index: Int) -> WidgetCollectionCell?
+    func numberOfItems() -> Int
+    func sizeOfItem(at index: Int) -> CGSize
+    func collectionView(_ collectionView: WidgetCollectionView, cellForItemAt index: Int) -> WidgetCollectionCell?
     
 }
 
-open protocol WidgetCollectionViewDelegate: UIScrollViewDelegate {
+public protocol WidgetCollectionViewDelegate: UIScrollViewDelegate {
     
-    open func collectionView(_ collectionView: WidgetCollectionView, didSelectItemAt index: Int)
+    func collectionView(_ collectionView: WidgetCollectionView, didSelectItemAt index: Int)
     
 }
 
@@ -33,11 +33,11 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
                 maxY: CGFloat = 0,
                 enableSelected: Bool = true
     
-    open var spacing: CGFloat = 0
+    public var spacing: CGFloat = 0
     
-    open weak var dataSource: WidgetCollectionViewDataSource?
+    public weak var dataSource: WidgetCollectionViewDataSource?
     private weak var widgetDelegate: WidgetCollectionViewDelegate?
-    open override var delegate: UIScrollViewDelegate? {
+    public override var delegate: UIScrollViewDelegate? {
         didSet {
             if let d = delegate as? WidgetCollectionViewDelegate {
                 widgetDelegate = d
@@ -46,7 +46,7 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
         }
     }
     
-    open func reloadData() {
+    public func reloadData() {
         DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
             self.layoutAllCell()
         }
@@ -85,7 +85,7 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
         scrollViewDidScroll(self)
     }
     
-    open func dequeueReusableView(withReuseIdentifier identifier: String, for index: Int) -> WidgetCollectionCell? {
+    public func dequeueReusableView(withReuseIdentifier identifier: String, for index: Int) -> WidgetCollectionCell? {
         var cell: WidgetCollectionCell?
         let reuseIdentifier = "\(identifier)_\(index)"
         if let reuseCell = outOfScreens[reuseIdentifier] {
@@ -101,11 +101,11 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
         return cell
     }
     
-    open func register(_ viewClass: WidgetCollectionCell.Type?, forViewWithReuseIdentifier identifier: String) {
+    public func register(_ viewClass: WidgetCollectionCell.Type?, forViewWithReuseIdentifier identifier: String) {
         registers[identifier] = viewClass
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         var screenFrame = scrollView.bounds
         screenFrame.origin = scrollView.contentOffset
         allScreens.forEach { v in
@@ -123,59 +123,59 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
         widgetDelegate?.scrollViewDidScroll?(scrollView)
     }
     
-    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+    public func scrollViewDidZoom(_ scrollView: UIScrollView) {
         widgetDelegate?.scrollViewDidZoom?(scrollView)
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         widgetDelegate?.scrollViewWillBeginDragging?(scrollView)
     }
     
-    func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
         widgetDelegate?.scrollViewWillBeginDecelerating?(scrollView)
     }
     
-    func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
+    public func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
         widgetDelegate?.scrollViewWillBeginZooming?(scrollView, with: view)
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         widgetDelegate?.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
     }
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         widgetDelegate?.scrollViewWillEndDragging?(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
     
-    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+    public func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
         widgetDelegate?.scrollViewDidScrollToTop?(scrollView)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         widgetDelegate?.scrollViewDidEndDecelerating?(scrollView)
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+    public func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         widgetDelegate?.scrollViewDidEndScrollingAnimation?(scrollView)
     }
     
-    func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
+    public func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
         widgetDelegate?.scrollViewDidChangeAdjustedContentInset?(scrollView)
     }
     
-    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+    public func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         widgetDelegate?.scrollViewDidEndZooming?(scrollView, with: view, atScale: scale)
     }
     
-    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+    public func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
         return widgetDelegate?.scrollViewShouldScrollToTop?(scrollView) ?? true
     }
     
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+    public func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return widgetDelegate?.viewForZooming?(in: scrollView)
     }
     
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         for view in subviews {
             if view.frame.contains(point), let cell = view as? WidgetCollectionCell {
                 if enableSelected {
@@ -198,7 +198,7 @@ open class WidgetCollectionCell: UIView {
     open var reuseIdentifier: String?,
         index: Int = 0
     
-    required convenience init(reuseIdentifier: String?, index: Int) {
+    public required convenience init(reuseIdentifier: String?, index: Int) {
         self.init()
         self.reuseIdentifier = reuseIdentifier
         self.index = index
