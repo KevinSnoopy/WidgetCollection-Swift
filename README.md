@@ -8,7 +8,7 @@
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-/*![示例图片](https://github.com/KevinSnoopy/WidgetCollection-Swift/tree/master/Example/widget.png) */
+/*![示例图片](https://github.com/KevinSnoopy/WidgetCollection-Swift/tree/master/widget.png) */
 
 ## Requirements
 
