@@ -1,0 +1,15 @@
+{
+  "" : {
+    "const-values" : "/Users/kevin/Desktop/WidgetCollection-Swift/Example/build/Pods.build/Release-iphoneos/WidgetCollection-Swift.build/Objects-normal/arm64/WidgetCollection-Swift-master.swiftconstvalues",
+    "dependencies" : "/Users/kevin/Desktop/WidgetCollection-Swift/Example/build/Pods.build/Release-iphoneos/WidgetCollection-Swift.build/Objects-normal/arm64/WidgetCollection-Swift-master.d",
+    "diagnostics" : "/Users/kevin/Desktop/WidgetCollection-Swift/Example/build/Pods.build/Release-iphoneos/WidgetCollection-Swift.build/Objects-normal/arm64/WidgetCollection-Swift-master.dia",
+    "emit-module-dependencies" : "/Users/kevin/Desktop/WidgetCollection-Swift/Example/build/Pods.build/Release-iphoneos/WidgetCollection-Swift.build/Objects-normal/arm64/WidgetCollection-Swift-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/kevin/Desktop/WidgetCollection-Swift/Example/build/Pods.build/Release-iphoneos/WidgetCollection-Swift.build/Objects-normal/arm64/WidgetCollection-Swift-master-emit-module.dia",
+    "swift-dependencies" : "/Users/kevin/Desktop/WidgetCollection-Swift/Example/build/Pods.build/Release-iphoneos/WidgetCollection-Swift.build/Objects-normal/arm64/WidgetCollection-Swift-master.swiftdeps"
+  },
+  "/Users/kevin/Desktop/WidgetCollection-Swift/WidgetCollection-Swift/Classes/WidgetCollectionView.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-iphoneos/WidgetCollection-Swift.build/Objects-normal/arm64/WidgetCollectionView.o",
+    "llvm-bc" : "/Users/kevin/Desktop/WidgetCollection-Swift/Example/build/Pods.build/Release-iphoneos/WidgetCollection-Swift.build/Objects-normal/arm64/WidgetCollectionView.bc",
+    "object" : "/Users/kevin/Desktop/WidgetCollection-Swift/Example/build/Pods.build/Release-iphoneos/WidgetCollection-Swift.build/Objects-normal/arm64/WidgetCollectionView.o"
+  }
+}

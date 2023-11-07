@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+Target 'Pods-WidgetCollection-Swift_Tests' in project 'Pods'
+➜ Explicit dependency on target 'Pods-WidgetCollection-Swift_Example' in project 'Pods'
+Target 'Pods-WidgetCollection-Swift_Example' in project 'Pods'
+➜ Explicit dependency on target 'WidgetCollection-Swift' in project 'Pods'
+Target 'WidgetCollection-Swift' in project 'Pods' (no dependencies)

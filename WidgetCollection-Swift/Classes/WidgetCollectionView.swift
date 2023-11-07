@@ -8,21 +8,21 @@
 import Foundation
 import UIKit
 
-protocol WidgetCollectionViewDataSource: NSObjectProtocol {
+open protocol WidgetCollectionViewDataSource: NSObjectProtocol {
     
-    func numberOfItems() -> Int
-    func sizeOfItem(at index: Int) -> CGSize
-    func collectionView(_ collectionView: WidgetCollectionView, cellForItemAt index: Int) -> WidgetCollectionCell?
-    
-}
-
-protocol WidgetCollectionViewDelegate: UIScrollViewDelegate {
-    
-    func collectionView(_ collectionView: WidgetCollectionView, didSelectItemAt index: Int)
+    open func numberOfItems() -> Int
+    open func sizeOfItem(at index: Int) -> CGSize
+    open func collectionView(_ collectionView: WidgetCollectionView, cellForItemAt index: Int) -> WidgetCollectionCell?
     
 }
 
-class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
+open protocol WidgetCollectionViewDelegate: UIScrollViewDelegate {
+    
+    open func collectionView(_ collectionView: WidgetCollectionView, didSelectItemAt index: Int)
+    
+}
+
+open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
     
     private var allScreens: [WidgetCollectionCell] = [],
                 outOfScreens: [String: WidgetCollectionCell] = [:],
@@ -33,11 +33,11 @@ class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
                 maxY: CGFloat = 0,
                 enableSelected: Bool = true
     
-    var spacing: CGFloat = 0
+    open var spacing: CGFloat = 0
     
-    weak var dataSource: WidgetCollectionViewDataSource?
+    open weak var dataSource: WidgetCollectionViewDataSource?
     private weak var widgetDelegate: WidgetCollectionViewDelegate?
-    override var delegate: UIScrollViewDelegate? {
+    open override var delegate: UIScrollViewDelegate? {
         didSet {
             if let d = delegate as? WidgetCollectionViewDelegate {
                 widgetDelegate = d
@@ -46,7 +46,7 @@ class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
         }
     }
     
-    func reloadData() {
+    open func reloadData() {
         DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
             self.layoutAllCell()
         }
@@ -85,7 +85,7 @@ class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
         scrollViewDidScroll(self)
     }
     
-    func dequeueReusableView(withReuseIdentifier identifier: String, for index: Int) -> WidgetCollectionCell? {
+    open func dequeueReusableView(withReuseIdentifier identifier: String, for index: Int) -> WidgetCollectionCell? {
         var cell: WidgetCollectionCell?
         let reuseIdentifier = "\(identifier)_\(index)"
         if let reuseCell = outOfScreens[reuseIdentifier] {
@@ -101,7 +101,7 @@ class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
         return cell
     }
     
-    func register(_ viewClass: WidgetCollectionCell.Type?, forViewWithReuseIdentifier identifier: String) {
+    open func register(_ viewClass: WidgetCollectionCell.Type?, forViewWithReuseIdentifier identifier: String) {
         registers[identifier] = viewClass
     }
     
@@ -193,9 +193,9 @@ class WidgetCollectionView: UIScrollView, UIScrollViewDelegate {
     
 }
 
-class WidgetCollectionCell: UIView {
+open class WidgetCollectionCell: UIView {
     
-    var reuseIdentifier: String?,
+    open var reuseIdentifier: String?,
         index: Int = 0
     
     required convenience init(reuseIdentifier: String?, index: Int) {
@@ -205,7 +205,7 @@ class WidgetCollectionCell: UIView {
         self.setUpView()
     }
     
-    func setUpView() {
+    open func setUpView() {
         
     }
     
