@@ -285,6 +285,10 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate, WidgetColle
     }
     
     func didTouch(_ cell: WidgetCollectionCell, didSelectItemAt index: Int) {
+        if inShake {
+            stopShake()
+            return
+        }
         widgetDelegate?.collectionView(self, didSelectItemAt: index)
     }
     
