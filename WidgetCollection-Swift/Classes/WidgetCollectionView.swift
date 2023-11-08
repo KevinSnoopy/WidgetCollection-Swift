@@ -28,6 +28,7 @@ public protocol WidgetCollectionViewDataSource: NSObjectProtocol {
 protocol WidgetCollectionCellDelegate: NSObjectProtocol {
     
     func didTouchDelete(_ cell: WidgetCollectionCell, didDeleteItemAt index: Int)
+    func didTouch(_ cell: WidgetCollectionCell, didSelectItemAt index: Int)
     
 }
 
@@ -197,22 +198,6 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate, WidgetColle
         return widgetDelegate?.viewForZooming?(in: scrollView)
     }
     
-    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        for view in subviews {
-            if view.frame.contains(point), let cell = view as? WidgetCollectionCell {
-                if enableSelected {
-                    enableSelected = false
-                    widgetDelegate?.collectionView(self, didSelectItemAt: cell.index)
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
-                        self.enableSelected = true
-                    }
-                }
-                return view
-            }
-        }
-        return self
-    }
-    
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
@@ -299,6 +284,10 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate, WidgetColle
         widgetDelegate?.collectionView?(self, didDeleteItemAt: index)
     }
     
+    func didTouch(_ cell: WidgetCollectionCell, didSelectItemAt index: Int) {
+        widgetDelegate?.collectionView(self, didSelectItemAt: index)
+    }
+    
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -356,10 +345,16 @@ open class WidgetCollectionCell: UIView {
     open func setUpView() {
         addSubview(contentView)
         addSubview(deleteBtn)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(touchCell))
+        addGestureRecognizer(gesture)
     }
     
     @objc func touchDelete() {
         delegate?.didTouchDelete(self, didDeleteItemAt: index)
+    }
+    
+    @objc func touchCell() {
+        delegate?.didTouch(self, didSelectItemAt: index)
     }
     
     func startShake() {
