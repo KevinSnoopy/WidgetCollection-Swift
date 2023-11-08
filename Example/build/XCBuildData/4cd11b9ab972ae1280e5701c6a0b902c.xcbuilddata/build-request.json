@@ -1,0 +1,50 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98a420b1f2f8e720eb19ff8c2801d31b83"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e9883a98a1744808876730fb358b0a9689f"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98a05e387350fc3d350639ed1b8c5c30aa"
+    }
+  ],
+  "containerPath" : "/Users/kevin/Desktop/WidgetCollection-Swift/Example/Pods/Pods.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/kevin/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/kevin/Library/Developer/Xcode/DerivedData/Pods-ceovcahbtaxytkheedpddjcawgfu/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/kevin/Library/Developer/Xcode/DerivedData/Pods-ceovcahbtaxytkheedpddjcawgfu/Index.noindex/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : false
+}

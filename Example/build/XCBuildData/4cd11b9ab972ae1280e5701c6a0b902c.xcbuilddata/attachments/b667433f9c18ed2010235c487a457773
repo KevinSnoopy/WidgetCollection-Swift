@@ -1,0 +1,5 @@
+ extern const unsigned char WidgetCollection_SwiftVersionString[];
+ extern const double WidgetCollection_SwiftVersionNumber;
+
+ const unsigned char WidgetCollection_SwiftVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:WidgetCollection_Swift  PROJECT:Pods-1" "\n";
+ const double WidgetCollection_SwiftVersionNumber __attribute__ ((used)) = (double)1.;
