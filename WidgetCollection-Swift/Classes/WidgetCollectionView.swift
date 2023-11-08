@@ -212,7 +212,7 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate, WidgetColle
             }
             let point = sender.location(in: sender.view)
             for view in allScreens {
-                if view.frame.contains(point) {
+                if view.frame.contains(point), let shake = widgetDelegate?.collectionView?(self, canDeleteItemAt: view.index), shake {
                     bringSubviewToFront(view)
                     let p = sender.location(in: view)
                     comparePoint = CGPoint(x: p.x-view.bounds.midX, y: p.y-view.bounds.midY)
@@ -235,7 +235,7 @@ open class WidgetCollectionView: UIScrollView, UIScrollViewDelegate, WidgetColle
                 cell.center = CGPoint(x: point.x-comparePoint.x, y: point.y-comparePoint.y)
                 var inOther = false
                 for view in allScreens {
-                    if view.index != cell.index, view.frame.contains(cell.center) {
+                    if view.index != cell.index, view.frame.contains(cell.center), let shake = widgetDelegate?.collectionView?(self, canDeleteItemAt: view.index), shake {
                         inOther = true
                         break
                     }
